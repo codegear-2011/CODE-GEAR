@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>React Hooks Deep Dive | CODE GEAR BLOG</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    /* Page styling consistent with CODE GEAR BLOG */
+    body {
+      background: #121212;
+      color: #e0e0e0;
+      font-family: Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    nav {
+      backdrop-filter: blur(8px);
+      background: rgba(0,0,0,0.7) !important;
+    }
+
+    header.hero {
+      background: linear-gradient(to right, #1e1e1e, #121212, #000);
+      padding: 4.5rem 1rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+
+    header.hero h1 { color: #61dafb; } /* React-ish cyan */
+    header.hero p { color: #bfc7cc; font-size: 1.05rem; }
+
+    .badge-category {
+      background: #61dafb;
+      color: #08202a;
+      font-weight: 600;
+      border-radius: .5rem;
+      padding: .35rem .6rem;
+      display: inline-block;
+    }
+
+    main.container {
+      margin-top: 2rem;
+    }
+
+    article.post {
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.6);
+    }
+
+    article.post h2, article.post h3 {
+      color: #61dafb;
+      margin-top: 1.25rem;
+    }
+
+    pre.code {
+      background: #0f1720;
+      border-radius: 8px;
+      padding: 1rem;
+      color: #dfffe6;
+      overflow-x: auto;
+      border: 1px solid rgba(255,255,255,0.04);
+      margin-top: .75rem;
+      margin-bottom: .75rem;
+      font-family: Menlo, Monaco, "Courier New", monospace;
+      font-size: .95rem;
+      line-height: 1.5;
+    }
+
+    .meta {
+      color: #9aa7ad;
+      margin-top: .5rem;
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      background: rgba(0,0,0,0.7);
+      padding: 2rem 1rem;
+      text-align: center;
+      color: #aaa;
+      backdrop-filter: blur(6px);
+    }
+
+    .btn-return { background: #61dafb; color: #08202a; }
+
+    /* Responsive tweaks */
+    @media (min-width: 992px) {
+      header.hero { padding: 5.5rem 1rem; }
+      main.container { max-width: 900px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold text-info" href="#">CODE GEAR BLOG</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+              aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Offcanvas Menu -->
+  <div class="offcanvas offcanvas-end bg-dark text-light" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div class="offcanvas-header">
+      <h5 id="offcanvasNavbarLabel">Menu</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link text-info" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link text-info" href="#">Articles</a></li>
+        <li class="nav-item"><a class="nav-link text-info" href="#">Tutorials</a></li>
+        <li class="nav-item"><a class="nav-link text-info" href="#">About</a></li>
+        <li class="nav-item"><a class="nav-link text-info" href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <span class="badge-category">React</span>
+      <h1 class="display-5 fw-bold mt-3">React Hooks Deep Dive</h1>
+      <p class="lead">Understand React Hooks like <strong>useState</strong>, <strong>useEffect</strong>, and custom hooks in depth.</p>
+      <div class="meta">By <strong>CODE GEAR</strong> · September 30, 2025</div>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <main class="container">
+    <article class="post">
+      <p>
+        Hooks changed the way we write React. They allow you to use state and other React features without writing a class.
+        This article covers the most important hooks (useState, useEffect) and shows how to compose logic into reusable custom hooks.
+      </p>
+
+      <h2>Why Hooks?</h2>
+      <p>
+        Hooks make it easier to share logic between components, reduce boilerplate, and help keep components more readable.
+        They also encourage functional components and cleaner separation of concerns.
+      </p>
+
+      <h2>useState — Local state in a function</h2>
+      <p>
+        `useState` returns a stateful value and a function to update it. It's great for component-local state like form inputs, toggles, counters, etc.
+      </p>
+
+      <pre class="code"><code>
+// Example: simple counter component
+import React, { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Count: {count}&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount(c =&gt; c + 1)}&gt;Increment&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+      </code></pre>
+
+      <h2>useEffect — side effects & lifecycle</h2>
+      <p>
+        `useEffect` runs side-effects (data fetching, subscriptions, timers). You can control when it runs with a dependency array.
+      </p>
+
+      <pre class="code"><code>
+// Example: timer with cleanup
+import React, { useState, useEffect } from 'react';
+
+function Timer() {
+  const [seconds, setSeconds] = useState(0);
+
+  useEffect(() =&gt; {
+    const id = setInterval(() =&gt; setSeconds(s =&gt; s + 1), 1000);
+    return () =&gt; clearInterval(id); // cleanup on unmount
+  }, []); // empty array -> run once after mount
+
+  return &lt;div&gt;Seconds: {seconds}&lt;/div&gt;;
+}
+      </code></pre>
+
+      <h3>Common useEffect patterns</h3>
+      <ul>
+        <li><strong>Run once on mount:</strong> `useEffect(..., [])`</li>
+        <li><strong>Watch values:</strong> `useEffect(..., [value])`</li>
+        <li><strong>Cleanup:</strong> return a function to unsubscribe / clear timers</li>
+      </ul>
+
+      <h2>Custom Hooks — extract reusable logic</h2>
+      <p>
+        Custom hooks are just JS functions that use hooks. They let you share behavior across components.
+      </p>
+
+      <pre class="code"><code>
+// Example: useFetch custom hook
+import { useState, useEffect } from 'react';
+
+function useFetch(url) {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() =&gt; {
+    let mounted = true;
+    setLoading(true);
+    fetch(url)
+      .then(r =&gt; r.json())
+      .then(json =&gt; { if (mounted) setData(json); })
+      .catch(err =&gt; { if (mounted) setError(err); })
+      .finally(() =&gt; { if (mounted) setLoading(false); });
+
+    return () =&gt; { mounted = false; };
+  }, [url]);
+
+  return { data, loading, error };
+}
+
+// Usage in a component:
+function Posts() {
+  const { data, loading, error } = useFetch('/api/posts');
+  if (loading) return &lt;div&gt;Loading...&lt;/div&gt;;
+  if (error) return &lt;div&gt;Error&lt;/div&gt;;
+  return &lt;ul&gt;{data.map(p =&gt; &lt;li key={p.id}&gt;{p.title}&lt;/li&gt;)}&lt;/ul&gt;;
+}
+      </code></pre>
+
+      <h2>Rules of Hooks (short)</h2>
+      <ul>
+        <li>Only call hooks at the top level (no loops, conditionals, nested functions).</li>
+        <li>Only call hooks from React function components or custom hooks.</li>
+        <li>Name custom hooks with the `use` prefix (e.g. `useAuth`).</li>
+      </ul>
+
+      <h2>Advanced Tips</h2>
+      <p>
+        <strong>useRef</strong> is great for keeping mutable values across renders (e.g., storing timers or previous values).  
+        <strong>useMemo</strong> and <strong>useCallback</strong> help optimize expensive calculations and stable callbacks — but only use them when necessary.
+      </p>
+
+      <pre class="code"><code>
+// Example: useRef to focus input
+import React, { useRef } from 'react';
+
+function FocusInput() {
+  const ref = useRef(null);
+  return (
+    &lt;div&gt;
+      &lt;input ref={ref} placeholder="Type..." /&gt;
+      &lt;button onClick={() =&gt; ref.current && ref.current.focus()}&gt;Focus&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+      </code></pre>
+
+      <h3>When to create a custom hook?</h3>
+      <p>
+        Create a custom hook when you find repeating logic across multiple components (data fetching, form handling, subscriptions).
+        It improves readability and testability.
+      </p>
+
+      <h3>Conclusion</h3>
+      <p>
+        Hooks are the modern way to build React apps. Start with `useState` and `useEffect`, then refactor repeated logic into well-named custom hooks.
+        Keep the Rules of Hooks in mind, and favor small, focused hooks for clarity.
+      </p>
+
+      <a href="index.html" class="btn btn-return mt-3">← Back to Articles</a>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2025 CODE GEAR BLOG | Built with ❤️ using PROGRAMMING SKILLS</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

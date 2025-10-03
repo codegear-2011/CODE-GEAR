@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CODE GEAR BLOG</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #121212;
+      color: #e0e0e0;
+      font-family: Arial, sans-serif;
+    }
+    nav {
+      backdrop-filter: blur(8px);
+      background: rgba(0,0,0,0.7) !important;
+    }
+    header.hero {
+      background: linear-gradient(to right, #1e1e1e, #121212, #000);
+      padding: 6rem 1rem;
+      text-align: center;
+    }
+    header.hero h1 {
+      color: #00acee;
+    }
+    header.hero p {
+      color: #aaa;
+      font-size: 1.2rem;
+    }
+    .card-blog {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(6px);
+      border-radius: 12px;
+      color: #fff;
+      transition: transform 0.3s ease;
+    }
+    .card-blog:hover {
+      transform: translateY(-5px);
+    }
+    .card-blog img {
+      border-radius: 12px 12px 0 0;
+    }
+    footer {
+      background: rgba(0,0,0,0.7);
+      padding: 2rem 1rem;
+      text-align: center;
+      color: #aaa;
+      backdrop-filter: blur(6px);
+    }
+    .badge-category {
+      background: #00acee;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold text-info" href="#">CODE GEAR BLOG</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Offcanvas Menu -->
+<div class="offcanvas offcanvas-end bg-dark text-light" tabindex="-1" id="offcanvasNavbar">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">Menu</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="navbar-nav">
+      <li class="nav-item"><a class="nav-link text-info" href="/index.html">Home</a></li>
+      <li class="nav-item"><a class="nav-link text-info" href="#">Articles</a></li>
+      <li class="nav-item"><a class="nav-link text-info" href="#">Tutorials</a></li>
+      <li class="nav-item"><a class="nav-link text-info" href="#">About</a></li>
+      <li class="nav-item"><a class="nav-link text-info" href="#">Contact</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- Hero Section -->
+<header class="hero mb-5">
+  <div class="container">
+    <h1 class="display-3 fw-bold">Welcome to CODE GEAR BLOG</h1>
+    <p>Latest tutorials, tips, and insights for modern web developers</p>
+  </div>
+</header>
+
+<!-- Main Articles -->
+<main class="container">
+  <div class="row g-4">
+
+    <!-- Blog Card Example -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card card-blog shadow-lg">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlRtx5NT4eOnN-J3rQapP-LOluAXJL8x6iRzuQr1eF7g&s=10" class="card-img-top" alt="Article Image">
+        <div class="card-body">
+          <span class="badge badge-category mb-2">JavaScript</span>
+          <h5 class="card-title">Mastering ES2025 Features</h5>
+          <p class="card-text">Learn the latest features of JavaScript and how to use them effectively in your projects.</p>
+          <a href="mastering-es2025-features.html" class="btn btn-info btn-sm">Read More</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <div class="card card-blog shadow-lg">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSepOeQlNurtoTxvPyf3SaB5h0GU7loxG7eDnj2YA0dgw&s=10" class="card-img-top" alt="Article Image">
+        <div class="card-body">
+          <span class="badge badge-category mb-2">Python</span>
+          <h5 class="card-title">Data Science with Python</h5>
+          <p class="card-text">Step into AI and ML with Python. A beginner-friendly guide to start your data science journey.</p>
+          <a href="data-science-with-python.html" class="btn btn-info btn-sm">Read More</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <div class="card card-blog shadow-lg">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXd2Tj2WLb9V33xMPR5ByYgOpKVKo4-yWGphBOWZJXMkpLBk_SX_QuroYQ&s=10" class="card-img-top" alt="Article Image">
+        <div class="card-body">
+          <span class="badge badge-category mb-2">Web Dev</span>
+          <h5 class="card-title">Modern Web Development Trends</h5>
+          <p class="card-text">Stay updated with the latest frameworks, tools, and best practices in web development.</p>
+          <a href="modern-web-development-trends.html" class="btn btn-info btn-sm">Read More</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- More blog cards -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card card-blog shadow-lg">
+        <img src="https://dynamic-blog-jade.vercel.app/_next/image?url=%2Fblog6.jpg&w=1920&q=75" class="card-img-top" alt="Article Image">
+        <div class="card-body">
+          <span class="badge badge-category mb-2">React</span>
+          <h5 class="card-title">React Hooks Deep Dive</h5>
+          <p class="card-text">Understand React Hooks like useState, useEffect, and custom hooks in depth.</p>
+          <a href="react-hooks-deep-dive.html" class="btn btn-info btn-sm">Read More</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <div class="card card-blog shadow-lg">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS17d3laN1vXuwvshz5S_621gIs1-WZxNw7WEx7ARzSeA&s=10" class="card-img-top" alt="Article Image">
+        <div class="card-body">
+          <span class="badge badge-category mb-2">AI</span>
+          <h5 class="card-title">AI Integration in Web Apps</h5>
+          <p class="card-text">Discover how AI tools can enhance your web applications with smart features.</p>
+          <a href="ai-integration-in-web-apps.html" class="btn btn-info btn-sm">Read More</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <div class="card card-blog shadow-lg">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgkVm42NcSTcyhxoQjA_nuWOU_kDkYryqWjjhATDgZKg&s=10" class="card-img-top" alt="Article Image">
+        <div class="card-body">
+          <span class="badge badge-category mb-2">Debugging</span>
+          <h5 class="card-title">Debugging Like a Pro</h5>
+          <p class="card-text">Learn techniques and tools to debug your code efficiently and faster.</p>
+          <a href="debugging-like-a-pro.html" class="btn btn-info btn-sm">Read More</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="mt-5">
+  <div class="container">
+    <p>© 2025 CODE GEAR BLOG | Built with ❤️ powered by CODE GEAR </p>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

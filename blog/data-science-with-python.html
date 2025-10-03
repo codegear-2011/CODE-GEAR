@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data Science with Python | CODE GEAR BLOG</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #121212;
+      color: #e0e0e0;
+      font-family: Arial, sans-serif;
+    }
+    nav {
+      backdrop-filter: blur(8px);
+      background: rgba(0,0,0,0.7) !important;
+    }
+    header.hero {
+      background: linear-gradient(to right, #1e1e1e, #121212, #000);
+      padding: 5rem 1rem;
+      text-align: center;
+    }
+    header.hero h1 {
+      color: #00acee;
+    }
+    header.hero p {
+      color: #aaa;
+      font-size: 1.2rem;
+    }
+    article {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(6px);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-top: -3rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    article h2, article h3 {
+      color: #00acee;
+      margin-top: 1.5rem;
+    }
+    footer {
+      background: rgba(0,0,0,0.7);
+      padding: 2rem 1rem;
+      text-align: center;
+      color: #aaa;
+      backdrop-filter: blur(6px);
+      margin-top: 3rem;
+    }
+    .badge-category {
+      background: #00acee;
+      color: #fff;
+    }
+    .meta {
+      color: #9aa7ad;
+      margin-top: .5rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold text-info" href="#">CODE GEAR BLOG</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Offcanvas Menu -->
+<div class="offcanvas offcanvas-end bg-dark text-light" tabindex="-1" id="offcanvasNavbar">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">Menu</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="navbar-nav">
+      <li class="nav-item"><a class="nav-link text-info" href="#">Home</a></li>
+      <li class="nav-item"><a class="nav-link text-info" href="#">Articles</a></li>
+      <li class="nav-item"><a class="nav-link text-info" href="#">Tutorials</a></li>
+      <li class="nav-item"><a class="nav-link text-info" href="#">About</a></li>
+      <li class="nav-item"><a class="nav-link text-info" href="#">Contact</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- Hero Section -->
+<header class="hero">
+  <div class="container">
+    <span class="badge badge-category">Python</span>
+    <h1 class="display-4 fw-bold mt-3">Data Science with Python</h1>
+    <p>Step into AI and ML with Python. A beginner-friendly guide to start your data science journey.</p>
+  </div>
+  <div class="meta">By <strong>CODE GEAR</strong> · September 30, 2025</div>
+</header>
+
+<!-- Article Content -->
+<main class="container">
+  <article>
+    <p>
+      Python has become the <strong>most popular language</strong> for Data Science, thanks to its simplicity, vast libraries, and strong community support.  
+      Whether you’re a beginner or an experienced developer, Python provides tools that make working with data efficient and enjoyable.
+    </p>
+
+    <h2>1. Why Python for Data Science?</h2>
+    <ul>
+      <li>Readable and beginner-friendly syntax</li>
+      <li>Rich ecosystem of libraries like <code>NumPy</code>, <code>Pandas</code>, and <code>Matplotlib</code></li>
+      <li>Strong community support and resources</li>
+      <li>Integration with AI & ML frameworks such as <code>TensorFlow</code> and <code>PyTorch</code></li>
+    </ul>
+
+    <h2>2. Essential Libraries</h2>
+    <p>Here are the libraries every data science beginner should know:</p>
+    <pre class="bg-dark text-light p-3 rounded">
+      <code>
+        import numpy as np
+        import pandas as pd
+        import matplotlib.pyplot as plt
+        import seaborn as sns
+        import sklearn
+      </code>
+    </pre>
+
+    <h2>3. Example: Loading and Analyzing Data</h2>
+    <pre class="bg-dark text-light p-3 rounded">
+      <code>
+        # Load dataset
+        df = pd.read_csv("data.csv")
+
+        # Quick summary
+        print(df.head())
+        print(df.describe())
+
+        # Visualization
+        sns.countplot(x="category", data=df)
+        plt.show()
+      </code>
+    </pre>
+
+    <h2>4. Moving into AI & ML</h2>
+    <p>
+      With Python, you can easily step into **Machine Learning** using libraries like <code>scikit-learn</code>.  
+      Here’s a small example of training a simple model:
+    </p>
+    <pre class="bg-dark text-light p-3 rounded">
+      <code>
+        from sklearn.model_selection import train_test_split
+        from sklearn.linear_model import LogisticRegression
+
+        X = df[["feature1", "feature2"]]
+        y = df["label"]
+
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+        model = LogisticRegression()
+        model.fit(X_train, y_train)
+
+        print("Accuracy:", model.score(X_test, y_test))
+      </code>
+    </pre>
+
+    <h3>Conclusion</h3>
+    <p>
+      Python is not just a programming language—it’s the **gateway to Data Science, AI, and Machine Learning**.  
+      Start small, build projects, and explore the endless opportunities Python offers in the world of data-driven innovation.
+    </p>
+
+    <a href="index.html" class="btn btn-info mt-3">← Back to Articles</a>
+  </article>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p>© 2025 CODE GEAR BLOG | Built with ❤️ using Bootstrap</p>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
