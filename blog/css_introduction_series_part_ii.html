@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CSS Syntax – CODE GEAR BLOG</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: #121212;
+      color: #e0e0e0;
+      font-family: Arial, sans-serif;
+    }
+    nav {
+      backdrop-filter: blur(8px);
+      background: rgba(0,0,0,0.7) !important;
+    }
+    header.hero {
+      background: linear-gradient(to right, #1e1e1e, #121212, #000);
+      padding: 4.5rem 1rem;
+      text-align: center;
+    }
+    header.hero h1 { color: #00acee; }
+    header.hero p { color: #bbb; font-size: 1.05rem; }
+    .badge-category {
+      background: #00acee;
+      color: #fff;
+      border-radius: .5rem;
+      padding: .35rem .6rem;
+      display: inline-block;
+    }
+    article.post {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(6px);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-top: 2rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+    }
+    article.post h2, article.post h3 {
+      color: #00acee;
+      margin-top: 1.25rem;
+    }
+    pre.code {
+      background: #0f1720;
+      border-radius: 8px;
+      padding: 1rem;
+      color: #e0ffe0;
+      overflow-x: auto;
+      font-family: Menlo, Monaco, "Courier New", monospace;
+      font-size: .95rem;
+      line-height: 1.5;
+      margin-top: .75rem;
+      margin-bottom: .75rem;
+    }
+    footer {
+      background: rgba(0,0,0,0.7);
+      padding: 2rem 1rem;
+      text-align: center;
+      color: #aaa;
+      backdrop-filter: blur(6px);
+      margin-top: 2rem;
+    }
+    .btn-return {
+      background: #00acee;
+      color: #fff;
+    }
+    .exercise-box {
+      background: rgba(0, 172, 238, 0.1);
+      border-left: 4px solid #00acee;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      border-radius: 8px;
+    }
+    .exercise-box h4 {
+      color: #00acee;
+      margin-bottom: .8rem;
+    }
+    code {
+      background: #222;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #00ffcc;
+    }
+    .quiz-result {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold text-info" href="#">CODE GEAR BLOG</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Offcanvas Menu -->
+<div class="offcanvas offcanvas-end bg-dark text-light" tabindex="-1" id="offcanvasNavbar">
+  <div class="offcanvas-header">
+    <h5>Menu</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="navbar-nav">
+      <li class="nav-item"><a class="nav-link text-info" href="#">Home</a></li>
+      <li class="nav-item"><a class="nav-link text-info" href="#">Articles</a></li>
+      <li class="nav-item"><a class="nav-link text-info" href="#">Tutorials</a></li>
+      <li class="nav-item"><a class="nav-link text-info" href="#">About</a></li>
+      <li class="nav-item"><a class="nav-link text-info" href="#">Contact</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- Hero Section -->
+<header class="hero">
+  <div class="container">
+    <span class="badge-category">CSS Basics</span>
+    <h1 class="display-5 fw-bold mt-3">CSS Introduction Series – Part 2: CSS Syntax</h1>
+    <p class="lead">Understand how CSS rules are structured with selectors, properties, and values.</p>
+    <div class="meta">By <strong>CODE GEAR</strong> · October 19, 2025</div>
+  </div>
+</header>
+
+<!-- Article -->
+<main class="container">
+  <article class="post">
+    <p>
+      Every CSS rule consists of two main parts — a <strong>selector</strong> and a <strong>declaration block</strong>.  
+      The selector targets the HTML element you want to style, while the declaration block defines how that element should look.
+    </p>
+
+    <h2>CSS Rule Structure</h2>
+    <p>Here’s the basic syntax of a CSS rule:</p>
+
+    <pre class="code">selector {
+  property: value;
+}</pre>
+
+    <p>
+      The selector specifies which HTML element to style.  
+      The declaration block (inside the curly braces) contains one or more declarations, each made of a <code>property</code> and a <code>value</code>.
+    </p>
+
+    <h3>Example</h3>
+    <p>The following CSS rule makes all paragraph text red and center-aligned:</p>
+
+    <pre class="code">p {
+  color: red;
+  text-align: center;
+}</pre>
+
+    <h3>Example Explained</h3>
+    <ul>
+      <li><code>p</code> → Selector (targets all &lt;p&gt; elements)</li>
+      <li><code>color</code> → Property, <code>red</code> → Value</li>
+      <li><code>text-align</code> → Property, <code>center</code> → Value</li>
+    </ul>
+
+    <p>
+      You will learn much more about CSS selectors and properties in the upcoming parts of this series!
+    </p>
+
+    <!-- Exercise Section -->
+    <div class="exercise-box">
+      <h4>🧩 Exercise: Identify the Selector</h4>
+      <p>In the following CSS rule, which part is the selector?</p>
+
+      <pre class="code">p { color: red; }</pre>
+
+      <form id="quizForm">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="answer" id="opt1" value="p">
+          <label class="form-check-label" for="opt1"><code>p</code></label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="answer" id="opt2" value="{ color: red; }">
+          <label class="form-check-label" for="opt2"><code>{ color: red; }</code></label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="answer" id="opt3" value="color">
+          <label class="form-check-label" for="opt3"><code>color</code></label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="answer" id="opt4" value="red">
+          <label class="form-check-label" for="opt4"><code>red</code></label>
+        </div>
+        <button type="button" class="btn btn-return mt-3" onclick="checkAnswer()">Submit</button>
+        <div id="quizResult" class="quiz-result"></div>
+      </form>
+    </div>
+
+    <a href="index.html" class="btn btn-return mt-4">← Back to Articles</a>
+  </article>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p>© 2025 CODE GEAR BLOG | Built with ❤️ using Bootstrap</p>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function checkAnswer() {
+    const correct = "p";
+    const selected = document.querySelector('input[name="answer"]:checked');
+    const result = document.getElementById("quizResult");
+
+    if (!selected) {
+      result.innerHTML = "⚠️ Please select an answer before submitting.";
+      result.style.color = "#ffcc00";
+      return;
+    }
+
+    if (selected.value === correct) {
+      result.innerHTML = "✅ Correct! <code>p</code> is the selector that targets paragraph elements.";
+      result.style.color = "#00ff88";
+    } else {
+      result.innerHTML = "❌ Incorrect. Hint: The selector comes before the curly braces.";
+      result.style.color = "#ff5555";
+    }
+  }
+</script>
+
+
+</body>
+</html>

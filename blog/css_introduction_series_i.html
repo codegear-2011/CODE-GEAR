@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CSS Introduction Series | CODE GEAR BLOG</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: #121212;
+      color: #e0e0e0;
+      font-family: Arial, sans-serif;
+    }
+    nav {
+      backdrop-filter: blur(8px);
+      background: rgba(0,0,0,0.7) !important;
+    }
+    header.hero {
+      background: linear-gradient(to right, #1e1e1e, #121212, #000);
+      padding: 4.5rem 1rem;
+      text-align: center;
+    }
+    header.hero h1 { color: #00acee; }
+    header.hero p { color: #bbb; font-size: 1.05rem; }
+    .badge-category {
+      background: #00acee;
+      color: #fff;
+      border-radius: .5rem;
+      padding: .35rem .6rem;
+      display: inline-block;
+    }
+    article.post {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(6px);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-top: 2rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+    }
+    article.post h2, article.post h3 {
+      color: #00acee;
+      margin-top: 1.25rem;
+    }
+    pre.code {
+      background: #0f1720;
+      border-radius: 8px;
+      padding: 1rem;
+      color: #e0ffe0;
+      overflow-x: auto;
+      font-family: Menlo, Monaco, "Courier New", monospace;
+      font-size: .95rem;
+      line-height: 1.5;
+      margin-top: .75rem;
+      margin-bottom: .75rem;
+    }
+    footer {
+      background: rgba(0,0,0,0.7);
+      padding: 2rem 1rem;
+      text-align: center;
+      color: #aaa;
+      backdrop-filter: blur(6px);
+      margin-top: 2rem;
+    }
+    .btn-return {
+      background: #00acee;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold text-info" href="#">CODE GEAR BLOG</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Offcanvas Menu -->
+<div class="offcanvas offcanvas-end bg-dark text-light" tabindex="-1" id="offcanvasNavbar">
+  <div class="offcanvas-header">
+    <h5>Menu</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="navbar-nav">
+      <li class="nav-item"><a class="nav-link text-info" href="#">Home</a></li>
+      <li class="nav-item"><a class="nav-link text-info" href="#">Articles</a></li>
+      <li class="nav-item"><a class="nav-link text-info" href="#">Tutorials</a></li>
+      <li class="nav-item"><a class="nav-link text-info" href="#">About</a></li>
+      <li class="nav-item"><a class="nav-link text-info" href="#">Contact</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="container">
+    <span class="badge-category">CSS Tutorial</span>
+    <h1 class="display-5 fw-bold mt-3">CSS Introduction Series(I)</h1>
+    <p class="lead">Learn the fundamentals of CSS and start styling your web pages like a pro.</p>
+    <div class="meta">By <strong>CODE GEAR</strong> · October 9, 2025</div>
+  </div>
+</header>
+
+<!-- Article -->
+<main class="container">
+  <article class="post">
+    <p>CSS stands for Cascading Style Sheets. It is a stylesheet language used to style and enhance website presentation. CSS is one of the three main components of a webpage, along with HTML and JavaScript.
+
+HTML adds Structure to a web page.
+JavaScript adds logic to it and CSS makes it visually appealing or stylish. It controls the layout of a web page i.e. how HTML elements will be displayed on a webpage.
+CSS was released (in 1996), 3 years after HTML (in 1993). The main idea behind its use is that it allows the separation of content (HTML) from presentation (CSS). This makes websites easier to maintain and more flexible.</p>
+
+    <h2>What is CSS?</h2>
+    <p>CSS controls the visual presentation of HTML elements, enabling colors, fonts, layout, spacing, and animations.</p>
+
+
+<!-- Visual Impact of CSS Section -->
+<section class="container my-5">
+  <h2 class="text-center mb-4" style="color:#00acee;">Visual Impact of CSS</h2>
+  <p class="text-center text-muted mb-4">
+    
+  </p>
+
+  <div id="cssComparisonCarousel" class="carousel slide shadow-lg rounded-4 overflow-hidden" data-bs-ride="carousel" style="background:rgba(255,255,255,0.05);backdrop-filter:blur(8px);">
+    <div class="carousel-inner">
+
+      <div class="carousel-item active text-center">
+        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20250213152453435036/Webpage-Without-CSS.webp" class="d-block w-100" alt="Webpage Without CSS">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 style="color:#00acee;">Before CSS</h5>
+          <p class="text-light">Plain HTML structure — no styling applied.</p>
+        </div>
+      </div>
+
+      <div class="carousel-item text-center">
+        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20250213152453127754/Webpage-With-CSS.webp" class="d-block w-100" alt="Webpage With CSS">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 style="color:#00acee;">After CSS</h5>
+          <p class="text-light">Styled and modernized with colors, layout, and fonts.</p>
+        </div>
+      </div>
+
+      <div class="carousel-item text-center">
+        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20250213170811753305/3.webp" class="d-block w-100" alt="CSS Layout Example">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 style="color:#00acee;">Improved Layouts</h5>
+          <p class="text-light">CSS makes layouts flexible and visually organized.</p>
+        </div>
+      </div>
+
+      <div class="carousel-item text-center">
+        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20250213170621629446/5.webp" class="d-block w-100" alt="CSS Example 2">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 style="color:#00acee;">Professional Look</h5>
+          <p class="text-light">Modern websites depend on CSS for their visual appeal.</p>
+        </div>
+      </div>
+
+      <div class="carousel-item text-center">
+        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20250213152452784071/4.webp" class="d-block w-100" alt="CSS Example 3">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 style="color:#00acee;">Enhanced User Experience</h5>
+          <p class="text-light">CSS enhances readability and user engagement.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#cssComparisonCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#cssComparisonCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+
+    <!-- Indicators -->
+    <div class="carousel-indicators" style="bottom:-30px;">
+      <button type="button" data-bs-target="#cssComparisonCarousel" data-bs-slide-to="0" class="active bg-info"></button>
+      <button type="button" data-bs-target="#cssComparisonCarousel" data-bs-slide-to="1" class="bg-info"></button>
+      <button type="button" data-bs-target="#cssComparisonCarousel" data-bs-slide-to="2" class="bg-info"></button>
+      <button type="button" data-bs-target="#cssComparisonCarousel" data-bs-slide-to="3" class="bg-info"></button>
+      <button type="button" data-bs-target="#cssComparisonCarousel" data-bs-slide-to="4" class="bg-info"></button>
+    </div>
+  </div>
+</section>
+
+    <h2>CSS Syntax</h2>
+    <p>A CSS rule has a selector and a declaration block:</p>
+    <pre class="code">
+selector {
+  property: value;
+  property2: value2;
+}
+    </pre>
+    <p>Example:</p>
+    <pre class="code">
+p {
+  color: blue;
+  font-size: 16px;
+}
+    </pre>
+
+    <h2>Ways to Add CSS</h2>
+    <p>1. Inline CSS:</p>
+    <pre class="code">&lt;p style="color: red;"&gt;Inline CSS example&lt;/p&gt;</pre>
+    <p>2. Internal CSS:</p>
+    <pre class="code">&lt;style&gt; h1 { color: green; } &lt;/style&gt;</pre>
+    <p>3. External CSS:</p>
+    <pre class="code">&lt;link rel="stylesheet" href="styles.css"&gt;</pre>
+
+    <h2>CSS Selectors</h2>
+    <p>Selectors determine which elements are styled:</p>
+    <pre class="code">
+/* Element */ h1 { color: purple; }
+/* Class */ .highlight { background-color: yellow; }
+/* ID */ #main { font-size: 24px; }
+/* Group */ h1, h2, p { font-family: Arial; }
+    </pre>
+
+    <h2>Box Model</h2>
+    <p>Every element has content, padding, border, and margin:</p>
+    <pre class="code">
+div {
+  width: 200px;
+  padding: 10px;
+  border: 2px solid black;
+  margin: 20px;
+}
+    </pre>
+
+    <h2>Conclusion</h2>
+    <p>CSS is essential for web design, enabling responsive layouts, beautiful typography, and interactive pages. Master these basics to build visually engaging websites.</p>
+
+    <a href="index.html" class="btn btn-return mt-3">← Back to Articles</a>
+  </article>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p>© 2025 CODE GEAR BLOG | Built with ❤️ using Bootstrap</p>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
