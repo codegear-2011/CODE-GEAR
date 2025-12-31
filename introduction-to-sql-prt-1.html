@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data Science with Python | CODE GEAR BLOG</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #121212;
+      color: #e0e0e0;
+      font-family: Arial, sans-serif;
+    }
+    nav {
+      backdrop-filter: blur(8px);
+      background: rgba(0,0,0,0.7) !important;
+    }
+    header.hero {
+      background: linear-gradient(to right, #1e1e1e, #121212, #000);
+      padding: 5rem 1rem;
+      text-align: center;
+    }
+    header.hero h1 {
+      color: #00acee;
+    }
+    header.hero p {
+      color: #aaa;
+      font-size: 1.2rem;
+    }
+    article {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(6px);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-top: -3rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    article h2, article h3 {
+      color: #00acee;
+      margin-top: 1.5rem;
+    }
+    footer {
+      background: rgba(0,0,0,0.7);
+      padding: 2rem 1rem;
+      text-align: center;
+      color: #aaa;
+      backdrop-filter: blur(6px);
+      margin-top: 3rem;
+    }
+    .badge-category {
+      background: #00acee;
+      color: #fff;
+    }
+    .meta {
+      color: #9aa7ad;
+      margin-top: .5rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold text-info" href="#">CODE GEAR BLOG</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Offcanvas Menu -->
+<div class="offcanvas offcanvas-end bg-dark text-light" tabindex="-1" id="offcanvasNavbar">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">Menu</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="navbar-nav">
+      <li class="nav-item"><a class="nav-link text-info" href="#">Home</a></li>
+      <li class="nav-item"><a class="nav-link text-info" href="#">Articles</a></li>
+      <li class="nav-item"><a class="nav-link text-info" href="#">Tutorials</a></li>
+      <li class="nav-item"><a class="nav-link text-info" href="#">About</a></li>
+      <li class="nav-item"><a class="nav-link text-info" href="#">Contact</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- Hero Section -->
+<header class="hero">
+  <div class="container">
+    <span class="badge badge-category">SQL</span>
+    <h1 class="display-4 fw-bold mt-3">introduction to SQL part 1</h1>
+    <p>Learn the fundamentals of SQL and build a web site that shows data from a database</p>
+  </div>
+  <div class="meta">By <strong>CODE GEAR</strong> · DECEMBER 31, 2025</div>
+</header>
+
+<!-- Article Content -->
+<main class="container">
+  <article>
+    <p>
+       <strong>SQL</strong>  is a standard language for accessing and manipulating databases.
+      
+    </p>
+
+    <h2>1.What is SQL?</h2>
+    <ul>
+      <li>SQL stands for <strong>Structured Query Language</strong></li>
+      <li>SQL lets you access and manipulate databases</li>
+      <li>SQL became a standard of the American National Standards Institute (ANSI) in 1986, and of the International Organization for Standardization (ISO) in 1987
+</li>
+      
+    <h2>2. What Can SQL do?</h2>
+    <li>SQL can execute queries against a database</li>
+    <li>SQL can retrieve data from a database</li>
+    <li>SQL can insert records in a database</li>
+    <li>SQL can update records in a database</li>
+    <li>SQL can delete records from a database</li>
+    <li>SQL can create new databases</li>
+    <li>SQL can create stored procedures in a database</li>
+    <li>SQL can create views in a database</li>
+    <li>SQL can set permissions on tables, procedures, and views</li>
+    <h2>3.SQL is a Standard - BUT....</h2>
+<p>Although SQL is an ANSI/ISO standard, there are different versions of the SQL language.
+
+However, to be compliant with the ANSI standard, they all support at least the major commands (such as <code>SELECT</code>, <code>UPDATE</code>, <code>DELETE</code>, <code>INSERT</code>, <code>WHERE</code>) in a similar manner.</p>
+    
+    <pre class="bg-dark text-light p-3 rounded">
+      <code>
+       Note: Most of the SQL database programs also have their own proprietary extensions in addition to the SQL standard!
+      </code>
+    </pre>
+
+    <h2>4. Using SQL in Your Web Site</h2>
+    <p>
+      To build a web site that shows data from a database, you will need:
+      Here’s a small example of training a simple model:
+    </p>
+    <li>An RDBMS database program (i.e. MS Access, SQL Server, MySQL)</li>
+    <li>To use a server-side scripting language, like PHP or ASP</li>
+    <li>To use SQL to get the data you want</li>
+    <li>To use HTML / CSS to style the page</li>
+
+    <h3>5. RDBMS</h3>
+    <p>
+      RDBMS stands for Relational Database Management System.</p>
+
+<p>RDBMS is the basis for SQL, and for all modern database systems such as MS SQL Server, IBM DB2, Oracle, MySQL, and Microsoft Access.</p>
+
+<p>The data in RDBMS is stored in database objects called tables. A table is a collection of related data entries and it consists of columns and rows.</p>
+    </p>
+<p>Look at the "Customers" table:</p>
+<pre class="bg-dark text-light p-3 rounded">
+      <code>
+       SELECT * FROM Customers;
+      </code>
+    </pre>
+    <p>Every table is broken up into smaller entities called fields. The fields in the Customers table consist of CustomerID, CustomerName, ContactName, Address, City, PostalCode and Country. A field is a column in a table that is designed to maintain specific information about every record in the table.</p>
+
+<p>A record, also called a row, is each individual entry that exists in a table. For example, there are 91 records in the above Customers table. A record is a horizontal entity in a table.</p>
+
+<p>A column is a vertical entity in a table that contains all information associated with a specific field in a table.</p>
+      <code>if you practice SQL in web,then check out my SQL studio: 
+gear-sqlite-studio.vercel.app
+GitHub:https://github.com/codegear-2011/CODE-GEAR-SQLite-Studio</code>
+      
+    <a href="index.html" class="btn btn-info mt-3">← Back to Articles</a>
+  </article>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p>© 2025 CODE GEAR BLOG | Built with ❤️ using Bootstrap</p>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
