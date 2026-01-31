@@ -1,25 +1,109 @@
 <style>
-  body {
-      background: #121212;
-      color: #e0e0e0;
-      font-family: Arial, sans-serif;
-  }
-  article {
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(6px);
-      border-radius: 12px;
-      padding: 2rem;
-      margin-top: -3rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    body {
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        color: #e0e0e0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        padding: 2rem;
     }
-    article h2, article h3 {
-      color: #00acee;
-      margin-top: 1.5rem;
+
+    .article {
+        max-width: 900px;
+        margin: auto;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(10px);
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    }
+
+    .article h1 {
+        text-align: center;
+        color: #00acee;
+        margin-bottom: 1.5rem;
+        letter-spacing: 1px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        overflow: hidden;
+        border-radius: 12px;
+    }
+
+    thead {
+        background: rgba(0, 172, 238, 0.2);
+    }
+
+    th, td {
+        padding: 14px 16px;
+        text-align: left;
+    }
+
+    th {
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+        color: #00acee;
+    }
+
+    tbody tr {
+        background: rgba(255, 255, 255, 0.04);
+        transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    tbody tr:hover {
+        background: rgba(0, 172, 238, 0.15);
+        transform: scale(1.01);
+    }
+
+    td a {
+        color: #e0e0e0;
+        text-decoration: none;
+        word-break: break-all;
+    }
+
+    td a:hover {
+        color: #00acee;
+        text-decoration: underline;
+    }
+
+    .type {
+        font-weight: bold;
+        color: #9be7ff;
     }
 </style>
+
 <div class="article">
-<h1>my links</h1>
-<p>https://www.facebook.com/watch/?v=188123400821871&rdid=KsxufV60caPU4HSZ</p>
-<p>https://limewire.com/d/FmoeP#yXRfEp9Y3I</p>
-  <p>https://limewire.com/d/vp37F#sa4yJrV3rb</p>
-</div>
+    <h1>🔗 My Links</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Type</th>
+                <th>Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td class="type">Facebook Video</td>
+                <td>
+                    <a href="https://www.facebook.com/watch/?v=188123400821871&rdid=KsxufV60caPU4HSZ" target="_blank">
+                        https://www.facebook.com/watch/?v=188123400821871
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td class="type">LimeWire File</td>
+                <td>
+                    <a href="https://limewire.com/d/sQJEc#Rbsp9zL9zE" target="_blank">
+                        HarinaviDVASHSStudentMarksheetManagementSystem
+                    </a>
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+                          </div>
