@@ -1,79 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Protected Links</title>
+
 <style>
-    body {
-        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-        color: #e0e0e0;
-        font-family: "Segoe UI", Arial, sans-serif;
-        padding: 2rem;
-    }
+/* ===== PAGE STYLE ===== */
+body {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #e0e0e0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    padding: 2rem;
+    margin: 0;
+}
 
-    .article {
-        max-width: 900px;
-        margin: auto;
-        background: rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(10px);
-        border-radius: 16px;
-        padding: 2rem;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-    }
+/* ===== ARTICLE / TABLE ===== */
+.article {
+    max-width: 900px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
 
-    .article h1 {
-        text-align: center;
-        color: #00acee;
-        margin-bottom: 1.5rem;
-        letter-spacing: 1px;
-    }
+.article h1 {
+    text-align: center;
+    color: #00acee;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+}
 
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        overflow: hidden;
-        border-radius: 12px;
-    }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+}
 
-    thead {
-        background: rgba(0, 172, 238, 0.2);
-    }
+thead {
+    background: rgba(0, 172, 238, 0.2);
+}
 
-    th, td {
-        padding: 14px 16px;
-        text-align: left;
-    }
+th, td {
+    padding: 14px 16px;
+    text-align: left;
+}
 
-    th {
-        text-transform: uppercase;
-        font-size: 0.85rem;
-        letter-spacing: 1px;
-        color: #00acee;
-    }
+th {
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    color: #00acee;
+}
 
-    tbody tr {
-        background: rgba(255, 255, 255, 0.04);
-        transition: background 0.3s ease, transform 0.2s ease;
-    }
+tbody tr {
+    background: rgba(255, 255, 255, 0.04);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
 
-    tbody tr:hover {
-        background: rgba(0, 172, 238, 0.15);
-        transform: scale(1.01);
-    }
+tbody tr:hover {
+    background: rgba(0, 172, 238, 0.15);
+    transform: scale(1.01);
+}
 
-    td a {
-        color: #e0e0e0;
-        text-decoration: none;
-        word-break: break-all;
-    }
+td a {
+    color: #e0e0e0;
+    text-decoration: none;
+    word-break: break-all;
+}
 
-    td a:hover {
-        color: #00acee;
-        text-decoration: underline;
-    }
+td a:hover {
+    color: #00acee;
+    text-decoration: underline;
+}
 
-    .type {
-        font-weight: bold;
-        color: #9be7ff;
-    }
+.type {
+    font-weight: bold;
+    color: #9be7ff;
+}
+
+/* ===== MODAL ===== */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.modal-box {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 2rem;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+}
+
+.modal-box h2 {
+    color: #38bdf8;
+    margin-bottom: 0.5rem;
+}
+
+.modal-box p {
+    color: #cbd5f5;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+/* ===== PIN INPUT ===== */
+.pin-inputs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.pin-inputs input {
+    width: 50px;
+    height: 55px;
+    text-align: center;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    border: 2px solid rgba(255,255,255,0.2);
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    outline: none;
+}
+
+.pin-inputs input:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 10px rgba(56,189,248,0.5);
+}
+
+/* ===== SHAKE ANIMATION ===== */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-8px); }
+    40% { transform: translateX(8px); }
+    60% { transform: translateX(-6px); }
+    80% { transform: translateX(6px); }
+    100% { transform: translateX(0); }
+}
+
+.shake {
+    animation: shake 0.4s ease;
+}
+
+/* ===== HIDDEN CONTENT ===== */
+#mainContent {
+    display: none;
+}
 </style>
+</head>
+<body>
 
-<div class="article">
+<!-- ===== PIN MODAL ===== -->
+<div class="modal" id="pinModal">
+    <div class="modal-box" id="modalBox">
+        <h2>🔒 Enter PIN</h2>
+        <p>Enter your 4-digit access code</p>
+
+        <div class="pin-inputs">
+            <input type="password" maxlength="1" inputmode="numeric">
+            <input type="password" maxlength="1" inputmode="numeric">
+            <input type="password" maxlength="1" inputmode="numeric">
+            <input type="password" maxlength="1" inputmode="numeric">
+        </div>
+    </div>
+</div>
+
+<!-- ===== PROTECTED CONTENT ===== -->
+<div class="article" id="mainContent">
     <h1>🔗 My Links</h1>
 
     <table>
@@ -99,11 +201,55 @@
                 <td class="type">LimeWire File</td>
                 <td>
                     <a href="https://limewire.com/d/sQJEc#Rbsp9zL9zE" target="_blank">
-                        HarinaviDVASHSStudentMarksheetManagementSystem
+                        	HarinaviDVASHSStudentMarksheetManagementSystem
                     </a>
                 </td>
             </tr>
             
         </tbody>
     </table>
-                          </div>
+</div>
+
+<script>
+const inputs = document.querySelectorAll(".pin-inputs input");
+const modal = document.getElementById("pinModal");
+const modalBox = document.getElementById("modalBox");
+const content = document.getElementById("mainContent");
+
+const CORRECT_PIN = "2011"; // 🔑 change PIN here
+
+inputs.forEach((input, index) => {
+    input.addEventListener("input", () => {
+        if (input.value && index < inputs.length - 1) {
+            inputs[index + 1].focus();
+        }
+        checkPin();
+    });
+
+    input.addEventListener("keydown", e => {
+        if (e.key === "Backspace" && !input.value && index > 0) {
+            inputs[index - 1].focus();
+        }
+    });
+});
+
+function checkPin() {
+    const pin = Array.from(inputs).map(i => i.value).join("");
+    if (pin.length === 4) {
+        if (pin === CORRECT_PIN) {
+            modal.style.display = "none";
+            content.style.display = "block";
+        } else {
+            modalBox.classList.add("shake");
+            setTimeout(() => modalBox.classList.remove("shake"), 400);
+            inputs.forEach(i => i.value = "");
+            inputs[0].focus();
+        }
+    }
+}
+
+inputs[0].focus();
+</script>
+
+</body>
+</html>
